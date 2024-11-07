@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+        <script>
+            var timerStarted = false;
+            var startTime;
+            function startTimer() {
+                if(!timerStarted) {
+                    timerStarted = true;
+                    //alert("Timer Started");
+                    startTime = Date.now();
+                }
+            }
+            function stopTimer(mod) {
+                timerStarted = false;
+                alert("Enrolled in " + mod + ".\nYou took " + (Date.now() - startTime)/1000 + " seconds.");
+                window.location.reload();
+            }
+        </script>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="course-searching">
+            <div class="div">
+                <div class="overlap">
+                    <!--
+                    <div class="subjects">
+                        <div class="navbar">
+                            <button class="subject">01<br> SMT</button>
+                            <button class="subject">02<br> HASS</button>
+                            <button class="subject">10<br> Freshmore</button>
+                            <button class="subject">20<br> ASD</button>
+                            <button class="subject">30<br> EPD</button>
+                            <button class="subject">40<br> ESD</button>
+                            <button class="subject">50<br> ISTD</button>
+                            <button class="subject">60<br> DAI</button>
+                        </div>
+                    </div>
+                    -->
+                    <div class="search-bar">
+                        <input class="form" type="search" 
+                                            name="search" placeholder="Search for Instructor, Pillar, Course Name or Number..." 
+                                                          hx-post="/htmx/search/" 
+                                                          hx-on::before-request="startTimer()"
+                                                          hx-trigger="input changed delay:200ms, search" 
+                                                          hx-target="div.overlap-3">
+                            <!--
+                            <div class="term-search-bar">
+                                <div class="overlap-group-2">
+                                    <div class="text-wrapper-12">2024 - 2025 Fall</div>
+                                    <img class="chevron-down" src="img/chevron-down.svg" />
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    <!--
+                    <div class="user-cart">
+                        <img class="user" src="img/user.svg" /> <img class="shopping-cart" src="img/shopping-cart.svg" />
+                    </div>
+                    -->
+                </div>
+                <!--
+                <div class="filter">
+                    <img class="filter-icon" src="img/filter-icon.svg" />
+                    <div class="popdown-courselevel">
+                        <div class="overlap-group-3">
+                            <img class="img" src="img/chevron-down.svg" />
+                            <div class="text-wrapper-13">Undergraduate</div>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div class="checkbox"></div>
+                        <div class="text-wrapper-14">Major Requirement</div>
+                    </div>
+                    <div class="filter-checkbox-2">
+                        <div class="checkbox"></div>
+                        <div class="text-wrapper-14">On Friend List</div>
+                    </div>
+                    <div class="filter-checkbox-3">
+                        <div class="check">
+                            <div class="checkbox-2"></div>
+                            <img class="check" src="img/check.svg" />
+                        </div>
+                        <div class="text-wrapper-15">Open Class</div>
+                    </div>
+                    <div class="filter-checkbox-4">
+                        <div class="check">
+                            <div class="checkbox-3"></div>
+                            <img class="check" src="img/check.svg" />
+                        </div>
+                        <div class="text-wrapper-16">Wait List Class</div>
+                    </div>
+                    <div class="filter-checkbox-5">
+                        <div class="check">
+                            <div class="checkbox-3"></div>
+                            <img class="check" src="img/check.svg" />
+                        </div>
+                        <div class="text-wrapper-16">Closed Class</div>
+                    </div>
+                    <div class="filter-checkbox-6">
+                        <div class="checkbox-4"></div>
+                        <div class="text-wrapper-17">Course Requirement Met</div>
+                    </div>
+                </div>
+                -->
+                <div class="overlap-3"></div>
+				<!--
+					<div class="review">
+					<div class="review-tag-wrapper"><div class="review-tag">Review:</div></div>
+					</div>
+					<img class="course-details-table" src="img/course-details-table.png" />
+					<div class="course-review">
+					</div>
+					<div class="frame">
+					<div class="polygon">
+					<div class="overlap-group-4">
+					<img class="img-2" src="img/mode-up.svg" /> <img class="img-2" src="img/mode-down.svg" />
+					</div>
+					</div>
+					</div>
+				-->
+            </div>
+        </div>
+    </body>
+</html>
+

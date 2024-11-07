@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function shuffle(array) {
+                let currentIndex = array.length;
+
+                // While there remain elements to shuffle...
+                while (currentIndex != 0) {
+
+                    // Pick a remaining element...
+                    let randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex--;
+
+                    // And swap it with the current element.
+                    [array[currentIndex], array[randomIndex]] = [
+                        array[randomIndex], array[currentIndex]];
+                }
+            }
+            const istd = "You’re passionate about <b>learning how to protect online data</b> and have previously looked into a course called <b>\"Data Privacy and Security\"</b>. You want to find out more about it and see if it fits into your schedule. It’s taught by <b>Professor John Lim</b> in <b>Term 8</b>.";
+            const asd = "You recently spoke to a professor who recommended a course called <b>\"Sustainable Urban Design\"</b> because of your interest in urban sustainability. It’s taught by <b>Professor Aisha Tan</b> in <b>Term 6</b>. Find this course.";
+            const esd = "You’re interested in <b>improving your skills in logistics</b> and have been looking for a course for it. You heard about it in passing during a lecture, and it's taught by <b>Professor Benjamin Wong</b> in <b>Term 7</b> under <b>ESD</b>. Find a course that fits this description.";
+            const epd = "A professor recently encouraged you to explore courses on <b>renewable energy</b>. You remember the course title being something like <b>\"Renewable Energy\"</b> under the <b>EPD</b> pillar, taught in <b>Term 5</b>. Use the search features to find a course that matches this description.";
+            const dai = "You’ve been keen on exploring <b>how AI can impact design</b> ever since you heard about it in a guest lecture. Curious, you want to find out if <b>DAI or ISTD</b> offers any course with similar learning outcomes in <b>Term 8</b>.";
+            const hass = "You enjoy <b>learning about global issues</b> and have always been <b>intrigued by politics</b>. You recently heard about a course titled <b>\"Global Politics and Society\"</b> under <b>HASS</b>, taught by <b>Professor Michael Lee</b>, which piqued your interest. It’s available in <b>Term 6</b>.";
+            const freshmore = "You’re a Freshmore student, and during an advising session, your professor suggested you take <b>\"Introduction to Engineering Systems\"</b> in <b>Term 4</b> to build a <b>strong foundation for your engineering path</b>. It’s taught by <b>Professor Rachel Koh</b>.";
+            var scenarios = [];
+            scenarios.push(istd, asd, esd, epd, dai, hass, freshmore);
+            shuffle(scenarios);
+            console.log(scenarios);
+        </script>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="main" class="main">
+            <br><br>
+            <br><br>
+            <br><br>
+        <script>
+            var idx = 1;
+            for(var scenario of scenarios) {
+                document.getElementById("main").innerHTML += idx+") ";
+                document.getElementById("main").innerHTML += scenario;
+                document.getElementById("main").innerHTML += "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+                idx++;
+            }
+        </script>
+        </div>
+    </body>
+</html>
+

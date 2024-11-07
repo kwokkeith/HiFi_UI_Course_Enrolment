@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+        <script>
+            var timerStarted = false;
+            var startTime;
+            function startTimer() {
+                if(!timerStarted) {
+                    timerStarted = true;
+                    console.log("Timer Started");
+                    startTime = Date.now();
+                }
+            }
+            function stopTimer(mod) {
+                timerStarted = false;
+                alert("Enrolled in " + mod + ".\nYou took " + (Date.now() - startTime)/1000 + " seconds.");
+                window.location.reload();
+            }
+            const asdProfs = [];
+            asdProfs.push('Mary Clarke','Aisha Tan','Mark Lim','Lily Ng','Kimberly Lim','Winston Lim','Jacqueline Goh','Isabella Ong','Zoe Ong','Vincent Tan','Ian Chen');
+            const daiProfs = [];
+            daiProfs.push('Alvin Chua','Edward Lai','Sheila Nair','David Lye','Kevin Tay','Rohan Kumar','Leslie Goh','Winston Lim','Antoine Dupont');
+            const epdProfs = [];
+            epdProfs.push('Shanti Nair','Samantha Cheong','Ji-Hoon Park','Kevin Tay','Eddy Toh','Vincenzo Rossi','Ivan Tay','William Goh','George Tan','Fiona Ang','Vanessa Lim','Dinesh Kumar','Melissa Ong','Frederick Lim','Anand Subramaniam','Michelle Tan','Shaun Tan','Lawrence Tan','Sarah White','Chee Meng Koh','Terence Chua','Karen Lim','Haruto Tanaka','Jessica Chia','Emiko Sato','Chandran Pillai');
+            const esdProfs = [];
+            esdProfs.push('Daniel Tan','Benjamin Wong','Winston Lim','Christopher Cheong','Kristin Koh','Victoria Low','Jason Chia','Aaron Tan','Keith Ong','Vivek Pillai','Rachel Koh','Bernard Teo','Steven Tay','Peter Lim','Timothy Ong');
+            const hassProfs = [];
+			hassProfs.push('Susan Lim','Gavin Teo','Catherine Lewis','Michael Lee','Kaori Suzuki','Sylvia Teo','Jonathan Lee','Praveen Raj','Paul Koh','Ethan Tan','Chen Yi Fan','Stephanie Ong','Winston Lim','Angela Soh','Lucien Moreau','Joshua Lau','Louis Teo','Jeremy Cheong','Jin Zhang','Amelia Blackwood','Cheng Wei Low','Michael Chew');
+            const istdProfs = [];
+            istdProfs.push('Jennifer Tan','Rebecca Tay','Boon Chye Lim','Zachary Tan','Chiara Bianchi','Li Rui','Jane Lim','Nicholas Lim','Mei Lin','Jane Davis','John Lim','Benjamin Lee','Grace Low','John Smith','Ganesh Raju','Rachel Tan','Nathan Hall','Ryan Chua','Hiroshi Nakamura','Jeanette Khoo','Wilson Chia','Nicole Teo','Brian Thompson','Kenneth Goh','Josephine Tay','Jack Brown','Adeline Wong','Anjali Nair');
+            const smtProfs = [];
+            smtProfs.push('Mary Clarke');
+            asdProfs.sort();
+            daiProfs.sort();
+            epdProfs.sort();
+            esdProfs.sort();
+            hassProfs.sort();
+            istdProfs.sort();
+            smtProfs.sort();
+            var allProfs = [];
+            allProfs.push(...asdProfs);
+            allProfs.push(...daiProfs);
+            allProfs.push(...epdProfs);
+            allProfs.push(...esdProfs);
+            allProfs.push(...hassProfs);
+            allProfs.push(...istdProfs);
+            allProfs.push(...smtProfs);
+            allProfs.sort();
+            allProfs = [...new Set(allProfs)];
+
+            function selectPillar() {
+                var v = document.getElementById("pillarDropdown").value;
+                document.getElementById("instructorsDropdown").innerHTML = "<option value=\"none\"></option>";
+                if(v=="ASD") {
+                    for(const profName of asdProfs) {
+                        document.getElementById("instructorsDropdown").innerHTML += "<option value=\""+profName+"\">"+profName+"</option>";
+                    }
+                }
+                if(v=="DAI") {
+                    for(const profName of daiProfs) {
+                        document.getElementById("instructorsDropdown").innerHTML += "<option value=\""+profName+"\">"+profName+"</option>";
+                    }
+                }
+                if(v=="ESD") {
+                    for(const profName of esdProfs) {
+                        document.getElementById("instructorsDropdown").innerHTML += "<option value=\""+profName+"\">"+profName+"</option>";
+                    }
+                }
+                if(v=="EPD") {
+                    for(const profName of epdProfs) {
+                        document.getElementById("instructorsDropdown").innerHTML += "<option value=\""+profName+"\">"+profName+"</option>";
+                    }
+                }
+                if(v=="HASS") {
+                    for(const profName of hassProfs) {
+                        document.getElementById("instructorsDropdown").innerHTML += "<option value=\""+profName+"\">"+profName+"</option>";
+                    }
+                }
+                if(v=="ISTD") {
+                    for(const profName of istdProfs) {
+                        document.getElementById("instructorsDropdown").innerHTML += "<option value=\""+profName+"\">"+profName+"</option>";
+                    }
+                }
+                if(v=="SMT") {
+                    for(const profName of smtProfs) {
+                        document.getElementById("instructorsDropdown").innerHTML += "<option value=\""+profName+"\">"+profName+"</option>";
+                    }
+                }
+                if(v=="none") {
+                    for(const profName of allProfs) {
+                        document.getElementById("instructorsDropdown").innerHTML += "<option value=\""+profName+"\">"+profName+"</option>";
+                    }
+                }
+        }
+        </script>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="course-searching">
+            <div class="div">
+                <div class="overlap">
+                    <form class="dropdowns" onclick="startTimer()" hx-post="/htmx/filter/" hx-trigger="change" hx-target="div.overlap-3">
+                        <label class="dropdownLabel">Pillar:</label>
+                        <select class="dropdown" id="pillarDropdown" name="pillar" onchange="selectPillar()">
+                            <option value="none"></option>
+                            <option value="ASD">ASD</option>
+                            <option value="DAI">DAI</option>
+                            <option value="EPD">EPD</option>
+                            <option value="ESD">ESD</option>
+                            <option value="HASS">HASS</option>
+                            <option value="ISTD">ISTD</option>
+                            <option value="SMT">SMT</option>
+                        </select>
+                        <label class="dropdownLabel">Instructor:</label>
+                        <select class="dropdown" id="instructorsDropdown" name="instructor">
+                            <script>
+                                document.getElementById("instructorsDropdown").innerHTML = "<option value=\"none\"></option>"
+                                for(const profName of allProfs) {
+                                    document.getElementById("instructorsDropdown").innerHTML += "<option value=\""+profName+"\">"+profName+"</option>";
+                                }
+                            </script>
+                        </select>
+                        <label class="dropdownLabel">Term:</label>
+                        <select class="dropdown" id="termDropdown" name="term">
+                            <option value="none"></option>
+                            <option value="1">Term 1</option>
+                            <option value="2">Term 2</option>
+                            <option value="3">Term 3</option>
+                            <option value="4">Term 4</option>
+                            <option value="5">Term 5</option>
+                            <option value="6">Term 6</option>
+                            <option value="7">Term 7</option>
+                            <option value="8">Term 8</option>
+                        </select>
+                </form>
+                    <!--
+                    <div class="user-cart">
+                        <img class="user" src="img/user.svg" /> <img class="shopping-cart" src="img/shopping-cart.svg" />
+                    </div>
+                    -->
+                </div>
+                <!--
+                <div class="filter">
+                    <img class="filter-icon" src="img/filter-icon.svg" />
+                    <div class="popdown-courselevel">
+                        <div class="overlap-group-3">
+                            <img class="img" src="img/chevron-down.svg" />
+                            <div class="text-wrapper-13">Undergraduate</div>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div class="checkbox"></div>
+                        <div class="text-wrapper-14">Major Requirement</div>
+                    </div>
+                    <div class="filter-checkbox-2">
+                        <div class="checkbox"></div>
+                        <div class="text-wrapper-14">On Friend List</div>
+                    </div>
+                    <div class="filter-checkbox-3">
+                        <div class="check">
+                            <div class="checkbox-2"></div>
+                            <img class="check" src="img/check.svg" />
+                        </div>
+                        <div class="text-wrapper-15">Open Class</div>
+                    </div>
+                    <div class="filter-checkbox-4">
+                        <div class="check">
+                            <div class="checkbox-3"></div>
+                            <img class="check" src="img/check.svg" />
+                        </div>
+                        <div class="text-wrapper-16">Wait List Class</div>
+                    </div>
+                    <div class="filter-checkbox-5">
+                        <div class="check">
+                            <div class="checkbox-3"></div>
+                            <img class="check" src="img/check.svg" />
+                        </div>
+                        <div class="text-wrapper-16">Closed Class</div>
+                    </div>
+                    <div class="filter-checkbox-6">
+                        <div class="checkbox-4"></div>
+                        <div class="text-wrapper-17">Course Requirement Met</div>
+                    </div>
+                </div>
+                -->
+                <div class="overlap-3"></div>
+				<!--
+					<div class="review">
+					<div class="review-tag-wrapper"><div class="review-tag">Review:</div></div>
+					</div>
+					<img class="course-details-table" src="img/course-details-table.png" />
+					<div class="course-review">
+					</div>
+					<div class="frame">
+					<div class="polygon">
+					<div class="overlap-group-4">
+					<img class="img-2" src="img/mode-up.svg" /> <img class="img-2" src="img/mode-down.svg" />
+					</div>
+					</div>
+					</div>
+				-->
+            </div>
+        </div>
+    </body>
+</html>
+

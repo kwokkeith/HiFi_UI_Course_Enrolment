@@ -1,0 +1,13 @@
+.main {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 200px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 24px;
+    letter-spacing: 0;
+    padding: 5px 0;
+    text-align: left;
+}
