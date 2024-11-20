@@ -1,0 +1,8 @@
+TODO: filter active state
+
+searchHeader:
+- filer hover state
+- filter active state (TODO)
+
+shoppingCart
+- checkbox function(TODO)

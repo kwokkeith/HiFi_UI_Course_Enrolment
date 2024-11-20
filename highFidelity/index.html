@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>SUTD Course Enrolment Page</title>
+  </head>
+  <body>
+    <div class="final-search-home">
+
+      <div class="overlap searchHeader">
+
+        <div class="searchContainer">
+          
+          <div class="searchBarContainer">
+
+            <div class="searchBar">
+              <input type="text" placeholder="Search for Course code, Name, Instructor, Pillar and/or Term">
+              <button type="submit">
+                  <img src="/images/searchHeader/searchIcon.svg">
+              </button>
+            </div>
+
+          </div>
+
+            <!-- <div class="filter">
+            <div class="filter-term">
+                <div class="div">
+                <div class="rectangle"></div>
+                <div class="text-wrapper-2">Term</div>
+                <div class="frame">
+                    <div class="group">
+                    <div class="term-icon">
+                        <div class="div-wrapper"><div class="text-wrapper-3">1</div></div>
+                    </div>
+                    </div>
+                    <div class="group">
+                    <div class="term-icon">
+                        <div class="div-wrapper"><div class="text-wrapper-3">2</div></div>
+                    </div>
+                    </div>
+                    <div class="group">
+                    <div class="term-icon">
+                        <div class="div-wrapper"><div class="text-wrapper-3">3</div></div>
+                    </div>
+                    </div>
+                    <div class="group">
+                    <div class="term-icon">
+                        <div class="div-wrapper"><div class="text-wrapper-3">4</div></div>
+                    </div>
+                    </div>
+                    <div class="group">
+                    <div class="term-icon">
+                        <div class="div-wrapper"><div class="text-wrapper-3">5</div></div>
+                    </div>
+                    </div>
+                    <div class="group">
+                    <div class="term-icon">
+                        <div class="overlap-group-2"><div class="text-wrapper-3">6</div></div>
+                    </div>
+                    </div>
+                    <div class="group">
+                    <div class="term-icon">
+                        <div class="div-wrapper"><div class="text-wrapper-3">7</div></div>
+                    </div>
+                    </div>
+                    <div class="group">
+                    <div class="term-icon">
+                        <div class="div-wrapper"><div class="text-wrapper-3">8</div></div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="filter-pillar">
+                <div class="overlap-2">
+                <div class="rectangle-2"></div>
+                <div class="EPD">
+                    <div class="overlap-group-3"><div class="text-wrapper-4">EPD</div></div>
+                </div>
+                <div class="ESD">
+                    <div class="overlap-group-3"><div class="text-wrapper-4">ESD</div></div>
+                </div>
+                <div class="ISTD">
+                    <div class="overlap-3"><div class="text-wrapper-4">ISTD</div></div>
+                </div>
+                <div class="ASD">
+                    <div class="overlap-group-3"><div class="text-wrapper-4">ASD</div></div>
+                </div>
+                <div class="DAI">
+                    <div class="overlap-group-3"><div class="text-wrapper-4">DAI</div></div>
+                </div>
+                <div class="freshmore">
+                    <div class="overlap-4"><div class="text-wrapper-5">Freshmore</div></div>
+                </div>
+                <div class="text-wrapper-6">Pillar</div>
+                </div>
+            </div>
+            </div> -->
+        
+            <div class="filter">
+                <div class="pillarFilter">
+                    <p>Pillar</p>
+                    <div class="pillarFilterOptionsContainer">
+                        <input type="button" value="EPD">
+                        <input type="button" value="ESD">
+                        <input type="button" value="ISTD">
+                        <input type="button" value="ASD">
+                        <input type="button" value="DAI">
+                        <input type="button" value="Freshmore">
+                    </div>
+                </div>
+                <div class="termFilter">
+                    <p>Term</p>
+                    <div class="termFilterOptionsContainer">
+                        <input type="button" value="1">
+                        <input type="button" value="2">
+                        <input type="button" value="3">
+                        <input type="button" value="4">
+                        <input type="button" value="5">
+                        <input type="button" value="6">
+                        <input type="button" value="7">
+                        <input type="button" value="8">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="menu">
+            <img class="friend" src="images/searchHeader/groupIcon.svg" />
+            <img class="user-profile" src="images/searchHeader/accountIcon.svg" />
+            <img class="home" src="images/searchHeader/homeIcon.svg" />
+        </div>
+
+      </div>
+      
+      <div class="leftWindow">
+        <div class="shoppingCartContainer">
+
+          <div class="shoppingCartHeader">
+
+            <div class="shoppingCartSelectAllContainer">
+              <input type="checkbox" id="shoppingCartSelectAll">
+              <label>Select All</label>
+            </div>
+
+            <div class="shoppingCartIconContainer">
+              <img src="./images/shoppingCart/shoppingCartIcon.svg" alt="ShoppingCartIcon">
+              <label>Shopping Cart</label>
+            </div>
+
+          </div>
+
+          <div class="shoppingCartWindow"></div>
+
+          <div class="shoppingCartActionButtonContainer">
+
+            <button id="shoppingCartEnrollButton" type="button">
+              <img src="./images/shoppingCart/addIcon_white.svg">
+              <label>Enroll</label>
+            </button>
+
+            <button id="shoppingCartClearAllButton" type="button">
+              <label>Clear All</label>
+            </button>
+
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="scheduleContainer"></div>
+      </div>
+
+      <!-- <div class="overlap-5">
+        <div class="left-window"></div>
+
+        <div class="schedule">
+          <div class="text-wrapper-7">Schedule</div>
+          <div class="timetable">
+            <div class="overlap-6">
+              <div class="timetable-each-block">
+                <div class="column">
+                  <div class="overlap-group-4">
+                    <div class="rectangle-3"></div>
+                    <div class="rectangle-4"></div>
+                    <div class="rectangle-5"></div>
+                    <div class="rectangle-6"></div>
+                    <div class="rectangle-7"></div>
+                    <div class="rectangle-8"></div>
+                    <div class="rectangle-9"></div>
+                    <div class="rectangle-10"></div>
+                    <div class="rectangle-11"></div>
+                  </div>
+                </div>
+                <div class="overlap-wrapper">
+                  <div class="overlap-group-4">
+                    <div class="rectangle-3"></div>
+                    <div class="rectangle-4"></div>
+                    <div class="rectangle-5"></div>
+                    <div class="rectangle-6"></div>
+                    <div class="rectangle-7"></div>
+                    <div class="rectangle-8"></div>
+                    <div class="rectangle-9"></div>
+                    <div class="rectangle-10"></div>
+                    <div class="rectangle-11"></div>
+                  </div>
+                </div>
+                <div class="overlap-group-wrapper">
+                  <div class="overlap-group-4">
+                    <div class="rectangle-3"></div>
+                    <div class="rectangle-4"></div>
+                    <div class="rectangle-5"></div>
+                    <div class="rectangle-6"></div>
+                    <div class="rectangle-7"></div>
+                    <div class="rectangle-8"></div>
+                    <div class="rectangle-9"></div>
+                    <div class="rectangle-10"></div>
+                    <div class="rectangle-11"></div>
+                  </div>
+                </div>
+                <div class="column-2">
+                  <div class="overlap-group-4">
+                    <div class="rectangle-3"></div>
+                    <div class="rectangle-4"></div>
+                    <div class="rectangle-5"></div>
+                    <div class="rectangle-6"></div>
+                    <div class="rectangle-7"></div>
+                    <div class="rectangle-8"></div>
+                    <div class="rectangle-9"></div>
+                    <div class="rectangle-10"></div>
+                    <div class="rectangle-11"></div>
+                  </div>
+                </div>
+                <div class="column-3">
+                  <div class="overlap-group-4">
+                    <div class="rectangle-3"></div>
+                    <div class="rectangle-4"></div>
+                    <div class="rectangle-5"></div>
+                    <div class="rectangle-6"></div>
+                    <div class="rectangle-7"></div>
+                    <div class="rectangle-8"></div>
+                    <div class="rectangle-9"></div>
+                    <div class="rectangle-10"></div>
+                    <div class="rectangle-11"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="day-row">
+                <div class="text-wrapper-8">Mon</div>
+                <div class="overlap-7">
+                  <div class="text-wrapper-8">Tue</div>
+                  <div class="text-wrapper-9">Wed</div>
+                </div>
+                <div class="text-wrapper-10">Thu</div>
+                <div class="text-wrapper-11">Fri</div>
+              </div>
+              <div class="time-column">
+                <div class="text-wrapper-12">9 AM</div>
+                <div class="text-wrapper-13">10 AM</div>
+                <div class="text-wrapper-14">11 AM</div>
+                <div class="text-wrapper-15">12 PM</div>
+                <div class="text-wrapper-16">1 PM</div>
+                <div class="text-wrapper-17">2 PM</div>
+                <div class="text-wrapper-18">3 PM</div>
+                <div class="text-wrapper-19">4 PM</div>
+                <div class="text-wrapper-20">5 PM</div>
+              </div>
+              <div class="interval-rows">
+                <img class="line" src="img/line-3.svg" />
+                <img class="img" src="img/line-4.svg" />
+                <img class="line-2" src="img/line-5.svg" />
+                <img class="line-3" src="img/line-6.svg" />
+                <img class="line-4" src="img/line-7.svg" />
+                <img class="line-5" src="img/line-8.svg" />
+                <img class="line-6" src="img/line-9.svg" />
+                <img class="line-7" src="img/line-10.svg" />
+                <img class="line-8" src="img/line-11.svg" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shopping-cart">
+          <div class="text-wrapper-21">Shopping Cart</div>
+          <div class="shopping-cart-window"><div class="scroll"></div></div>
+          <div class="select-all-check-box">
+            <div class="check-box"></div>
+            <div class="text-wrapper-22">Select All</div>
+          </div>
+          <div class="group-wrapper">
+            <div class="group-2">
+              <div class="overlap-group-5">
+                <div class="text-wrapper-23">Enroll</div>
+                <img class="plus" src="img/plus-2.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="group-3">
+            <div class="group-4"><div class="text-wrapper-24">Clear All</div></div>
+          </div>
+          <img class="cart" src="img/cart.svg" />
+        </div>
+
+        <img class="line-9" src="img/line-1.svg" />
+      </div> -->
+
+      <!-- <img class="course-block" src="img/course-block-1.png" />
+      <div class="overlap-8">
+        <img class="course-block-2" src="img/course-block-2.png" />
+        <img class="course-block-3" src="img/course-block-3.png" />
+      
+      </div> -->
+
+    </div>
+
+  </body>
+</html>
