@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="style.css" />
     <title>SUTD Course Enrolment Page</title>
   </head>
@@ -12,17 +11,17 @@
       <div class="overlap searchHeader">
 
         <div class="searchContainer">
-          
-          <div class="searchBarContainer">
+          <form>
+            <div class="searchBarContainer">
 
-            <div class="searchBar">
-              <input type="text" placeholder="Search for Course code, Name, Instructor, Pillar and/or Term">
-              <button type="submit">
-                  <img src="/images/searchHeader/searchIcon.svg">
-              </button>
+              <div class="searchBar">
+                <input type="text" placeholder="Search for Course code, Name, Instructor, Pillar and/or Term">
+                <button type="submit">
+                    <img src="/images/searchHeader/searchIcon.svg">
+                </button>
+              </div>
+
             </div>
-
-          </div>
 
             <!-- <div class="filter">
             <div class="filter-term">
@@ -102,30 +101,30 @@
             <div class="filter">
                 <div class="pillarFilter">
                     <p>Pillar</p>
-                    <div class="pillarFilterOptionsContainer">
-                        <input type="button" value="EPD">
-                        <input type="button" value="ESD">
-                        <input type="button" value="ISTD">
-                        <input type="button" value="ASD">
-                        <input type="button" value="DAI">
-                        <input type="button" value="Freshmore">
+                    <div class="pillarFilterOptionsContainer" id="pillarFilter">
+                        <input class="filterUnactiveState" type="button" value="EPD">
+                        <input class="filterUnactiveState" type="button" value="ESD">
+                        <input class="filterUnactiveState" type="button" value="ISTD">
+                        <input class="filterUnactiveState" type="button" value="ASD">
+                        <input class="filterUnactiveState" type="button" value="DAI">
+                        <input class="filterUnactiveState" type="button" value="Freshmore">
                     </div>
                 </div>
                 <div class="termFilter">
                     <p>Term</p>
-                    <div class="termFilterOptionsContainer">
-                        <input type="button" value="1">
-                        <input type="button" value="2">
-                        <input type="button" value="3">
-                        <input type="button" value="4">
-                        <input type="button" value="5">
-                        <input type="button" value="6">
-                        <input type="button" value="7">
-                        <input type="button" value="8">
+                    <div class="termFilterOptionsContainer" id="termFilter">
+                        <input class="filterUnactiveState" type="button" value="1">
+                        <input class="filterUnactiveState" type="button" value="2">
+                        <input class="filterUnactiveState" type="button" value="3">
+                        <input class="filterUnactiveState" type="button" value="4">
+                        <input class="filterUnactiveState" type="button" value="5">
+                        <input class="filterUnactiveState" type="button" value="6">
+                        <input class="filterUnactiveState" type="button" value="7">
+                        <input class="filterUnactiveState" type="button" value="8">
                     </div>
                 </div>
             </div>
-
+          </form>
         </div>
 
         <div class="menu">
@@ -136,43 +135,216 @@
 
       </div>
       
-      <div class="leftWindow">
-        <div class="shoppingCartContainer">
+      <div class="mainContainer">
 
-          <div class="shoppingCartHeader">
-
-            <div class="shoppingCartSelectAllContainer">
-              <input type="checkbox" id="shoppingCartSelectAll">
-              <label>Select All</label>
+        <div class="leftWindow">
+          <div class="shoppingCartContainer">
+  
+            <div class="shoppingCartHeader">
+  
+              <div class="shoppingCartSelectAllContainer">
+                <input type="checkbox" id="shoppingCartSelectAll">
+                <span>Select All</span>
+              </div>
+  
+              <div class="shoppingCartIconContainer">
+                <img src="./images/shoppingCart/shoppingCartIcon.svg" alt="ShoppingCartIcon">
+                <span>Shopping Cart</span>
+              </div>
+  
             </div>
-
-            <div class="shoppingCartIconContainer">
-              <img src="./images/shoppingCart/shoppingCartIcon.svg" alt="ShoppingCartIcon">
-              <label>Shopping Cart</label>
+  
+            <div class="shoppingCartWindow">
+              <!-- shoppingCartCourseBlock 1 -->
+              <div class="shoppingCartCourseBlock">
+                <input type="checkbox" class="shoppingCartCourseBlockCheckbox">
+                <div class="shoppingCartCourseBlockCourse">
+                  <span class="shoppingCartCourseBlockCourseCode">50.006</span>
+                  <span class="shoppingCartCourseBlockCourseTitle">User Interface Design & Implementation longer name for testing yeah</span>
+                </div>
+                <button type="button" class="shoppingCartCourseBlockRemoveButton">
+                  <img src="./images/shoppingCart/cancelIcon.svg">
+                </button>
+              </div>
+              <!-- shoppingCartCourseBlock 2 -->
+              <div class="shoppingCartCourseBlock">
+                <input type="checkbox" class="shoppingCartCourseBlockCheckbox">
+                <div class="shoppingCartCourseBlockCourse">
+                  <span class="shoppingCartCourseBlockCourseCode">50.006</span>
+                  <span class="shoppingCartCourseBlockCourseTitle">User Interface Design & Implementation</span>
+                </div>
+                <button type="button" class="shoppingCartCourseBlockRemoveButton">
+                  <img src="./images/shoppingCart/cancelIcon.svg">
+                </button>
+              </div>
+              <!-- shoppingCartCourseBlock 3 -->
+              <div class="shoppingCartCourseBlock">
+                <input type="checkbox" class="shoppingCartCourseBlockCheckbox">
+                <div class="shoppingCartCourseBlockCourse">
+                  <span class="shoppingCartCourseBlockCourseCode">10.002</span>
+                  <span class="shoppingCartCourseBlockCourseTitle">Physics I</span>
+                </div>
+                <button type="button" class="shoppingCartCourseBlockRemoveButton">
+                  <img src="./images/shoppingCart/cancelIcon.svg">
+                </button>
+              </div>
+              <!-- shoppingCartCourseBlock 4 -->
+              <div class="shoppingCartCourseBlock">
+                <input type="checkbox" class="shoppingCartCourseBlockCheckbox">
+                <div class="shoppingCartCourseBlockCourse">
+                  <span class="shoppingCartCourseBlockCourseCode">50.002</span>
+                  <span class="shoppingCartCourseBlockCourseTitle">Introduction to Python</span>
+                </div>
+                <button type="button" class="shoppingCartCourseBlockRemoveButton">
+                  <img src="./images/shoppingCart/cancelIcon.svg">
+                </button>
+              </div>
+              
             </div>
-
+  
+            <div class="shoppingCartActionButtonContainer">
+  
+              <button id="shoppingCartEnrollButton" type="button">
+                <img src="./images/shoppingCart/addIcon_white.svg">
+                <span>Enroll</span>
+              </button>
+  
+              <button id="shoppingCartClearAllButton" type="button">
+                <span>Clear All</span>
+              </button>
+  
+            </div>
           </div>
-
-          <div class="shoppingCartWindow"></div>
-
-          <div class="shoppingCartActionButtonContainer">
-
-            <button id="shoppingCartEnrollButton" type="button">
-              <img src="./images/shoppingCart/addIcon_white.svg">
-              <label>Enroll</label>
-            </button>
-
-            <button id="shoppingCartClearAllButton" type="button">
-              <label>Clear All</label>
-            </button>
-
+  
+          <hr>
+  
+          <div class="scheduleContainer">
+            <img src="./images/schedule/emptySchedule.png">
           </div>
         </div>
 
-        <hr>
+        <div class="rightWindow">
 
-        <div class="scheduleContainer"></div>
+          <!-- Course block 1 -->
+          <div class="courseBlock">
+            <button class="courseBlockButton" type="button">
+              <div class="courseBlock1row">
+                <span class="courseBlockCourseCode">50.006</span>
+                <span class="courseBlockTerm">Term 6</span>
+              </div>
+      
+              <p class="courseBlockCourseTitle">User Interface Design & Implementation</p>
+      
+              <div class="courseBlock2row">
+                <div class="courseBlock2rowSubContainer">
+                  <p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
+                  <div class="courseBlockMessage">
+                    <img src="./images/courseBlock/starIcon_green.svg">
+                    <span>This course fulfills your track: Software Development</span>
+                  </div>
+                </div>
+      
+                <img src="./images/courseBlock/arrowForwardIcon.svg">
+              </div>
+            </button>
+          </div>
+          <!-- Course block 2 -->
+          <div class="courseBlock">
+            <button class="courseBlockButton" type="button">
+              <div class="courseBlock1row">
+                <span class="courseBlockCourseCode">50.006</span>
+                <span class="courseBlockTerm">Term 6</span>
+              </div>
+      
+              <p class="courseBlockCourseTitle">User Interface Design & Implementation</p>
+      
+              <div class="courseBlock2row">
+                <div class="courseBlock2rowSubContainer">
+                  <p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
+                  <div class="courseBlockMessage">
+                    <img src="./images/courseBlock/starIcon_green.svg">
+                    <span>This course fulfills your track: Software Development</span>
+                  </div>
+                </div>
+      
+                <img src="./images/courseBlock/arrowForwardIcon.svg">
+              </div>
+            </button>
+          </div>
+          <!-- Course block 3 -->
+          <div class="courseBlock">
+            <button class="courseBlockButton" type="button">
+              <div class="courseBlock1row">
+                <span class="courseBlockCourseCode">50.006</span>
+                <span class="courseBlockTerm">Term 6</span>
+              </div>
+      
+              <p class="courseBlockCourseTitle">User Interface Design & Implementation</p>
+      
+              <div class="courseBlock2row">
+                <div class="courseBlock2rowSubContainer">
+                  <p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
+                  <div class="courseBlockMessage">
+                    <img src="./images/courseBlock/starIcon_green.svg">
+                    <span>This course fulfills your track: Software Development</span>
+                  </div>
+                </div>
+      
+                <img src="./images/courseBlock/arrowForwardIcon.svg">
+              </div>
+            </button>
+          </div>
+          <!-- Course block 4 -->
+          <div class="courseBlock">
+            <button class="courseBlockButton" type="button">
+              <div class="courseBlock1row">
+                <span class="courseBlockCourseCode">50.006</span>
+                <span class="courseBlockTerm">Term 6</span>
+              </div>
+      
+              <p class="courseBlockCourseTitle">User Interface Design & Implementation</p>
+      
+              <div class="courseBlock2row">
+                <div class="courseBlock2rowSubContainer">
+                  <p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
+                  <div class="courseBlockMessage">
+                    <img src="./images/courseBlock/starIcon_green.svg">
+                    <span>This course fulfills your track: Software Development</span>
+                  </div>
+                </div>
+      
+                <img src="./images/courseBlock/arrowForwardIcon.svg">
+              </div>
+            </button>
+          </div>
+          <!-- Course block 5 -->
+          <div class="courseBlock">
+            <button class="courseBlockButton" type="button">
+              <div class="courseBlock1row">
+                <span class="courseBlockCourseCode">50.006</span>
+                <span class="courseBlockTerm">Term 6</span>
+              </div>
+      
+              <p class="courseBlockCourseTitle">User Interface Design & Implementation</p>
+      
+              <div class="courseBlock2row">
+                <div class="courseBlock2rowSubContainer">
+                  <p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
+                  <div class="courseBlockMessage">
+                    <img src="./images/courseBlock/starIcon_green.svg">
+                    <span>This course fulfills your track: Software Development</span>
+                  </div>
+                </div>
+      
+                <img src="./images/courseBlock/arrowForwardIcon.svg">
+              </div>
+            </button>
+          </div>
+
+        </div>
+
       </div>
+      
 
       <!-- <div class="overlap-5">
         <div class="left-window"></div>
@@ -314,7 +486,9 @@
       
       </div> -->
 
-    </div>
+      
 
+    </div>
+    <script src="index.js"></script>
   </body>
 </html>

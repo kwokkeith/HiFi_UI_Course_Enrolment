@@ -2,7 +2,9 @@ TODO: filter active state
 
 searchHeader:
 - filer hover state
-- filter active state (TODO)
+- filter active state 
+  Added id to ".pillarFilterOptionsContainer"
+  Add class "filterUnactiveState" to input
 
 shoppingCart
-- checkbox function(TODO)
+- checkbox function
