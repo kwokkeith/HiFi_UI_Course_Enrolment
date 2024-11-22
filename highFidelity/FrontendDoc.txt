@@ -1,10 +1,31 @@
-TODO: filter active state
-
+------------------------ Search Header ------------------------
 searchHeader:
-- filer hover state
+- filter hover state
 - filter active state 
-  Added id to ".pillarFilterOptionsContainer"
-  Add class "filterUnactiveState" to input
+  by Adding id to ".pillarFilterOptionsContainer" and class "filterUnactiveState" to input
 
+
+------------------------ Left Window ------------------------
 shoppingCart
-- checkbox function
+- select all checkbox function
+- enroll and clear all button hover state
+- Not implemented: cancel button for shopping cart course block
+
+scheduleContainer
+- only contains empty schedule img
+
+
+------------------------ Right Window ------------------------
+courseFullContainer
+- active State (select and return) using .hiddenState class
+
+courseBlock
+- hover state
+
+courseDetail
+- button hover state
+- pop up for rating and friend
+
+studentReview
+- Collapsible
+

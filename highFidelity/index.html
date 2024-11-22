@@ -9,7 +9,7 @@
 	<body>
 		<div class="final-search-home">
 
-			<div class="overlap searchHeader">
+			<div class="searchHeader">
 
 				<div class="searchContainer">
 					<form id="form" hx-post="/htmx/search/" hx-trigger="input changed delay:200ms" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}">
@@ -17,86 +17,11 @@
 							<div class="searchBar">
 								<input name="search" type="text" placeholder="Search for Course code, Name, Instructor, Pillar and/or Term" >
 								<button type="submit">
-									<img src="/images/searchHeader/searchIcon.svg">
+									<img src="./images/searchHeader/searchIcon.svg">
 								</button>
 							</div>
 
 						</div>
-
-						<!-- <div class="filter">
-							<div class="filter-term">
-							<div class="div">
-							<div class="rectangle"></div>
-							<div class="text-wrapper-2">Term</div>
-							<div class="frame">
-							<div class="group">
-							<div class="term-icon">
-							<div class="div-wrapper"><div class="text-wrapper-3">1</div></div>
-							</div>
-							</div>
-							<div class="group">
-							<div class="term-icon">
-							<div class="div-wrapper"><div class="text-wrapper-3">2</div></div>
-							</div>
-							</div>
-							<div class="group">
-							<div class="term-icon">
-							<div class="div-wrapper"><div class="text-wrapper-3">3</div></div>
-							</div>
-							</div>
-							<div class="group">
-							<div class="term-icon">
-							<div class="div-wrapper"><div class="text-wrapper-3">4</div></div>
-							</div>
-							</div>
-							<div class="group">
-							<div class="term-icon">
-							<div class="div-wrapper"><div class="text-wrapper-3">5</div></div>
-							</div>
-							</div>
-							<div class="group">
-							<div class="term-icon">
-							<div class="overlap-group-2"><div class="text-wrapper-3">6</div></div>
-							</div>
-							</div>
-							<div class="group">
-							<div class="term-icon">
-							<div class="div-wrapper"><div class="text-wrapper-3">7</div></div>
-							</div>
-							</div>
-							<div class="group">
-							<div class="term-icon">
-							<div class="div-wrapper"><div class="text-wrapper-3">8</div></div>
-							</div>
-							</div>
-							</div>
-							</div>
-							</div>
-							<div class="filter-pillar">
-							<div class="overlap-2">
-							<div class="rectangle-2"></div>
-							<div class="EPD">
-							<div class="overlap-group-3"><div class="text-wrapper-4">EPD</div></div>
-							</div>
-							<div class="ESD">
-							<div class="overlap-group-3"><div class="text-wrapper-4">ESD</div></div>
-							</div>
-							<div class="ISTD">
-							<div class="overlap-3"><div class="text-wrapper-4">ISTD</div></div>
-							</div>
-							<div class="ASD">
-							<div class="overlap-group-3"><div class="text-wrapper-4">ASD</div></div>
-							</div>
-							<div class="DAI">
-							<div class="overlap-group-3"><div class="text-wrapper-4">DAI</div></div>
-							</div>
-							<div class="freshmore">
-							<div class="overlap-4"><div class="text-wrapper-5">Freshmore</div></div>
-							</div>
-							<div class="text-wrapper-6">Pillar</div>
-							</div>
-							</div>
-							</div> -->
 
 							<div class="filter">
 								<div class="pillarFilter">
@@ -226,267 +151,670 @@
 				<div class="rightWindow">
 
 					<!-- Course block 1 -->
-					<div class="courseBlock">
-						<button class="courseBlockButton" type="button">
+					<div class="courseFullContainer">
+
+						<div class="courseBlock">
+						  <button class="courseBlockButton" type="button">
 							<div class="courseBlock1row">
-								<span class="courseBlockCourseCode">50.006</span>
-								<span class="courseBlockTerm">Term 6</span>
+							  <span class="courseBlockCourseCode">50.006</span>
+							  <span class="courseBlockTerm">Term 6</span>
 							</div>
-
+					
 							<p class="courseBlockCourseTitle">User Interface Design & Implementation</p>
-
+					
 							<div class="courseBlock2row">
-								<div class="courseBlock2rowSubContainer">
-									<p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
-									<div class="courseBlockMessage">
-										<img src="./images/courseBlock/starIcon_green.svg">
-										<span>This course fulfills your track: Software Development</span>
-									</div>
+							  <div class="courseBlock2rowSubContainer">
+								<p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
+								<div class="courseBlockMessage">
+								  <img src="./images/courseBlock/starIcon_green.svg">
+								  <span>This course fulfills your track: Software Development</span>
 								</div>
-
-								<img src="./images/courseBlock/arrowForwardIcon.svg">
+							  </div>
+					
+							  <img src="./images/courseBlock/arrowForwardIcon.svg">
 							</div>
-						</button>
-					</div>
-					<!-- Course block 2 -->
-					<div class="courseBlock">
-						<button class="courseBlockButton" type="button">
+						  </button>
+						</div>
+			
+						<div class="courseDetail hiddenState">
+			
+						  <!-- SubContainer contains content except student review button -->
+						  <div class="courseDetailSubContainer">
+							<div class="courseDetailHeader">
+							  <button type="button" class="courseDetailReturnButton"><img src="./images/courseDetail/undoIcon.svg"></button>
+							  <span class="courseDetailCourseTitle">User Interface Design & Implementation</span>
+							</div>
+			
+							<hr>
+			
+							<p class="courseDetailCourseDescription">
+							  The course will introduce the field of Human-Computer Interaction (HCI), Interaction Design and Usability in the context of today’s diverse interactive products. The course will cover usability principles, design guidelines and heuristics, user-centred design, usability engineering, user experience and evaluation techniques, and will include a series of mini design exercises and design-implementation projects. 
+							</p>
+			
+							<div class="courseDetailPrerequisitesContainer">
+							  <span><b>Prerequisites: </b></span>
+							  <span class="courseDetailPrerequisitesCourse">10.014 Computational Thinking for Design</span>
+							  <img src="./images/courseDetail/checkCircleIcon_darkGreen.svg">
+							</div>
+			
+							<div class="courseDetailRatingContainer_All">
+			
+							  <div class="courseDetailRatingContainer">
+								<span>Content</span>
+								<div class="popup">
+								  <span class="popuptext">The relevance and clarity of materials in supporting course objectives.</span>
+								  <img src="./images/courseDetail/infoIcon_grey.svg">
+								</div>
+								<div class="courseDetailRatingBoxContainer">
+								  <span class="courseDetailRatingBox">5/5</span>
+								</div>
+							  </div>
+							  <div class="courseDetailRatingContainer">
+								<span>Teaching</span>
+								<div class="popup">
+								  <span class="popuptext">Instructor’s effectiveness in delivering the course material.</span>
+								  <img src="./images/courseDetail/infoIcon_grey.svg">
+								</div>
+								<div class="courseDetailRatingBoxContainer">
+								  <span class="courseDetailRatingBox">5/5</span>
+								</div>
+							  </div>
+							  <div class="courseDetailRatingContainer">
+								<span>Difficulty</span>
+								<div class="popup">
+								  <span class="popuptext">How challenging students found the course in terms of understanding and completing the material.</span>
+								  <img src="./images/courseDetail/infoIcon_grey.svg">
+								</div>
+								<div class="courseDetailRatingBoxContainer">
+								  <span class="courseDetailRatingBox">5/5</span>
+								</div>
+							  </div>
+							  <div class="courseDetailRatingContainer">
+								<span>Workload</span>
+								<div class="popup">
+								  <span class="popuptext">The amount of work required for the course.</span>
+								  <img src="./images/courseDetail/infoIcon_grey.svg">
+								</div>
+								<div class="courseDetailRatingBoxContainer">
+								  <span class="courseDetailRatingBox">5/5</span>
+								</div>
+							  </div>
+			
+							</div>
+			
+							<div class="courseDetailMessage">
+							  <img src="./images/courseDetail/starIcon.svg">
+							  <span><i>This course fulfills your track: Software Developer</i></span>
+							</div>
+			
+							<table class="courseDetailTable">
+							  <tr>
+								<th>Class</th>
+								<th>Days and Times</th>
+								<th>Instructor</th>
+								<th>Status</th>
+								<th>Friends</th>
+								<th>Actions</th>
+							  </tr>
+			
+							  <tr>
+								<td>C101</td>
+								<td>
+								  <p>Tue 10:30AM - 12:00PM</p>
+								  <p>Thu 11:30AM - 13:00PM</p>
+								</td>
+								<td>Simon Tangi Perrault</td>
+								<td>Open</td>
+								<td>
+								  <div class="popup">
+									<span class="popuptext popuptext_friend">
+									  <p><b>Friends taking this class:</b></p>
+									  <p>Bob L</p>
+									  <p>Charlie S</p>
+									  <p>Andy</p>
+									</span>
+									<img src="./images/courseDetail/3friendIcon.png" class="courseDetailTableFriendIcon">               
+								  </div>
+								</td>
+								<td class="courseDetailTableActionContainer">
+								  <div class="courseDetailTableButtonContainer">
+									<button type="button" class="courseDetailTableAddCartButton">
+									  <img src="./images/courseDetail/addShoppingCart_white.svg">
+									  <span>Add Cart</span>
+									</button>
+									<button type="button" class="courseDetailTableEnrollButton">
+									  <img src="./images/courseDetail/addIcon.svg">
+									  <span>Enroll</span>
+									</button>
+								  </div>
+								</td>
+							  </tr>
+			
+							  <tr>
+								<td>C101</td>
+								<td>
+								  <p>Tue 10:30AM - 12:00PM</p>
+								  <p>Thu 11:30AM - 13:00PM</p>
+								</td>
+								<td>Ryan J</td>
+								<td>Waitlist</td>
+								<td>
+								  <div class="popup">
+									<span class="popuptext popuptext_friend">
+									  <p><b>Friends taking this class:</b></p>
+									  <p>SuperBoris1234</p>
+									  <p>Tommy</p>
+									</span>
+									<img src="./images/courseDetail/2friendIcon.png" class="courseDetailTableFriendIcon">                
+								  </div>
+								</td>
+								<td>
+								  <div class="courseDetailTableButtonContainer">
+									<button type="button" class="courseDetailTableAddCartButton">
+									  <img src="./images/courseDetail/addShoppingCart_white.svg">
+									  <span>Add Cart</span>
+									</button>
+									<button type="button" class="courseDetailTableEnrollButton">
+									  <img src="./images/courseDetail/addIcon.svg">
+									  <span>Enroll</span>
+									</button>
+								  </div>
+								</td>
+							  </tr>
+			
+							</table>
+							
+						  </div>
+			
+						  <!-- Student Review Section -->
+						  <button type="button" class="courseDetailStudentReviewButton collapsibleButton">
+							<span>Student Review</span>
+							<img src="./images/courseDetail/arrowDropDownIcon.svg">
+						  </button>
+						  <div class="courseDetailStudentReviewContainer collapsibleContent hiddenState">
+							<!-- First review -->
+							<div class="courseDetailStudentReview">
+			
+							  <table>
+								<tr>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Content</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Teaching</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								</tr>
+								<tr>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  Content of the course doesnt make sense at all. It’s pure chaos. no bs lezgoooooo
+									</p>
+								  </td>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  Simon best prof 10/10 would recommend -IGN
+									</p>
+								  </td>
+								</tr>
+								<!-- Second Row -->
+								<tr>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Difficulty</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Workload</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								</tr>
+								<tr>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  The course is moderately difficult. With enough studying should be not that hard to archive a good grade.
+									</p>
+								  </td>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  HAIYAAAAAAAAAAAA so many hw, exam very hard. Overall, I got a A+
+									</p>
+								  </td>
+								</tr>
+							  </table>
+			
+							  <hr>
+			
+							  <p>By Bob Lee on Dec 3, 2023</p>
+			
+							</div>
+							<!-- Second review -->
+							<div class="courseDetailStudentReview">
+			
+							  <table>
+								<tr>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Content</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Teaching</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								</tr>
+								<tr>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  Some are common sense
+									</p>
+								  </td>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  Simon is friendly. He is willing to answer student questions.
+									</p>
+								  </td>
+								</tr>
+								<!-- Second Row -->
+								<tr>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Difficulty</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Workload</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								</tr>
+								<tr>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  I didn't study for final but I got an A grade
+									</p>
+								  </td>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  No homework. But doing the project will take some time.
+									</p>
+								  </td>
+								</tr>
+							  </table>
+			
+							  <hr>
+			
+							  <p>By SuperMan1234 on Apr 1, 2022</p>
+			
+							</div>
+						  </div>  
+						</div>
+			
+					  </div>
+					  <!-- Course block 2 -->
+					  <div class="courseFullContainer">
+			
+						<div class="courseBlock">
+						  <button class="courseBlockButton" type="button">
 							<div class="courseBlock1row">
-								<span class="courseBlockCourseCode">50.006</span>
-								<span class="courseBlockTerm">Term 6</span>
+							  <span class="courseBlockCourseCode">50.007</span>
+							  <span class="courseBlockTerm">Term 7</span>
 							</div>
-
-							<p class="courseBlockCourseTitle">User Interface Design & Implementation</p>
-
+					
+							<p class="courseBlockCourseTitle">User Interface Design & Implementation 2</p>
+					
 							<div class="courseBlock2row">
-								<div class="courseBlock2rowSubContainer">
-									<p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
-									<div class="courseBlockMessage">
-										<img src="./images/courseBlock/starIcon_green.svg">
-										<span>This course fulfills your track: Software Development</span>
-									</div>
+							  <div class="courseBlock2rowSubContainer">
+								<p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
+								<div class="courseBlockMessage">
+								  <img src="./images/courseBlock/starIcon_green.svg">
+								  <span>This course fulfills your track: Software Development</span>
 								</div>
-
-								<img src="./images/courseBlock/arrowForwardIcon.svg">
+							  </div>
+					
+							  <img src="./images/courseBlock/arrowForwardIcon.svg">
 							</div>
-						</button>
-					</div>
-					<!-- Course block 3 -->
-					<div class="courseBlock">
-						<button class="courseBlockButton" type="button">
-							<div class="courseBlock1row">
-								<span class="courseBlockCourseCode">50.006</span>
-								<span class="courseBlockTerm">Term 6</span>
+						  </button>
+						</div>
+			
+						<div class="courseDetail hiddenState">
+			
+						  <!-- SubContainer contains content except student review button -->
+						  <div class="courseDetailSubContainer">
+							<div class="courseDetailHeader">
+							  <button type="button" class="courseDetailReturnButton"><img src="./images/courseDetail/undoIcon.svg"></button>
+							  <span class="courseDetailCourseTitle">User Interface Design & Implementation 2</span>
 							</div>
-
-							<p class="courseBlockCourseTitle">User Interface Design & Implementation</p>
-
-							<div class="courseBlock2row">
-								<div class="courseBlock2rowSubContainer">
-									<p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
-									<div class="courseBlockMessage">
-										<img src="./images/courseBlock/starIcon_green.svg">
-										<span>This course fulfills your track: Software Development</span>
-									</div>
+			
+							<hr>
+			
+							<p class="courseDetailCourseDescription">
+							  The course will introduce the field of Human-Computer Interaction (HCI), Interaction Design and Usability in the context of today’s diverse interactive products. The course will cover usability principles, design guidelines and heuristics, user-centred design, usability engineering, user experience and evaluation techniques, and will include a series of mini design exercises and design-implementation projects. 
+							</p>
+			
+							<div class="courseDetailPrerequisitesContainer">
+							  <span><b>Prerequisites: </b></span>
+							  <span class="courseDetailPrerequisitesCourse">10.014 Computational Thinking for Design</span>
+							  <img src="./images/courseDetail/checkCircleIcon_darkGreen.svg">
+							</div>
+			
+							<div class="courseDetailRatingContainer_All">
+			
+							  <div class="courseDetailRatingContainer">
+								<span>Content</span>
+								<div class="popup">
+								  <span class="popuptext">The relevance and clarity of materials in supporting course objectives.</span>
+								  <img src="./images/courseDetail/infoIcon_grey.svg">
 								</div>
-
-								<img src="./images/courseBlock/arrowForwardIcon.svg">
-							</div>
-						</button>
-					</div>
-					<!-- Course block 4 -->
-					<div class="courseBlock">
-						<button class="courseBlockButton" type="button">
-							<div class="courseBlock1row">
-								<span class="courseBlockCourseCode">50.006</span>
-								<span class="courseBlockTerm">Term 6</span>
-							</div>
-
-							<p class="courseBlockCourseTitle">User Interface Design & Implementation</p>
-
-							<div class="courseBlock2row">
-								<div class="courseBlock2rowSubContainer">
-									<p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
-									<div class="courseBlockMessage">
-										<img src="./images/courseBlock/starIcon_green.svg">
-										<span>This course fulfills your track: Software Development</span>
-									</div>
+								<div class="courseDetailRatingBoxContainer">
+								  <span class="courseDetailRatingBox">5/5</span>
 								</div>
-
-								<img src="./images/courseBlock/arrowForwardIcon.svg">
-							</div>
-						</button>
-					</div>
-					<!-- Course block 5 -->
-					<div class="courseBlock">
-						<button class="courseBlockButton" type="button">
-							<div class="courseBlock1row">
-								<span class="courseBlockCourseCode">50.006</span>
-								<span class="courseBlockTerm">Term 6</span>
-							</div>
-
-							<p class="courseBlockCourseTitle">User Interface Design & Implementation</p>
-
-							<div class="courseBlock2row">
-								<div class="courseBlock2rowSubContainer">
-									<p class="courseBlockInstructor">Instructor: Ryan J, Keith K, Kenneth L,...</p>
-									<div class="courseBlockMessage">
-										<img src="./images/courseBlock/starIcon_green.svg">
-										<span>This course fulfills your track: Software Development</span>
-									</div>
+							  </div>
+							  <div class="courseDetailRatingContainer">
+								<span>Teaching</span>
+								<div class="popup">
+								  <span class="popuptext">Instructor’s effectiveness in delivering the course material.</span>
+								  <img src="./images/courseDetail/infoIcon_grey.svg">
 								</div>
-
-								<img src="./images/courseBlock/arrowForwardIcon.svg">
+								<div class="courseDetailRatingBoxContainer">
+								  <span class="courseDetailRatingBox">5/5</span>
+								</div>
+							  </div>
+							  <div class="courseDetailRatingContainer">
+								<span>Difficulty</span>
+								<div class="popup">
+								  <span class="popuptext">How challenging students found the course in terms of understanding and completing the material.</span>
+								  <img src="./images/courseDetail/infoIcon_grey.svg">
+								</div>
+								<div class="courseDetailRatingBoxContainer">
+								  <span class="courseDetailRatingBox">5/5</span>
+								</div>
+							  </div>
+							  <div class="courseDetailRatingContainer">
+								<span>Workload</span>
+								<div class="popup">
+								  <span class="popuptext">The amount of work required for the course.</span>
+								  <img src="./images/courseDetail/infoIcon_grey.svg">
+								</div>
+								<div class="courseDetailRatingBoxContainer">
+								  <span class="courseDetailRatingBox">5/5</span>
+								</div>
+							  </div>
+			
 							</div>
-						</button>
-					</div>
+			
+							<div class="courseDetailMessage">
+							  <img src="./images/courseDetail/starIcon.svg">
+							  <span><i>This course fulfills your track: Software Developer</i></span>
+							</div>
+			
+							<table class="courseDetailTable">
+							  <tr>
+								<th>Class</th>
+								<th>Days and Times</th>
+								<th>Instructor</th>
+								<th>Status</th>
+								<th>Friends</th>
+								<th>Actions</th>
+							  </tr>
+			
+							  <tr>
+								<td>C101</td>
+								<td>
+								  <p>Tue 10:30AM - 12:00PM</p>
+								  <p>Thu 11:30AM - 13:00PM</p>
+								</td>
+								<td>Simon Tangi Perrault</td>
+								<td>Open</td>
+								<td>
+								  <div class="popup">
+									<span class="popuptext popuptext_friend">
+									  <p><b>Friends taking this class:</b></p>
+									  <p>Bob L</p>
+									  <p>Charlie S</p>
+									  <p>Andy</p>
+									</span>
+									<img src="./images/courseDetail/3friendIcon.png" class="courseDetailTableFriendIcon">               
+								  </div>
+								</td>
+								<td class="courseDetailTableActionContainer">
+								  <div class="courseDetailTableButtonContainer">
+									<button type="button" class="courseDetailTableAddCartButton">
+									  <img src="./images/courseDetail/addShoppingCart_white.svg">
+									  <span>Add Cart</span>
+									</button>
+									<button type="button" class="courseDetailTableEnrollButton">
+									  <img src="./images/courseDetail/addIcon.svg">
+									  <span>Enroll</span>
+									</button>
+								  </div>
+								</td>
+							  </tr>
+			
+							  <tr>
+								<td>C101</td>
+								<td>
+								  <p>Tue 10:30AM - 12:00PM</p>
+								  <p>Thu 11:30AM - 13:00PM</p>
+								</td>
+								<td>Ryan J</td>
+								<td>Waitlist</td>
+								<td>
+								  <div class="popup">
+									<span class="popuptext popuptext_friend">
+									  <p><b>Friends taking this class:</b></p>
+									  <p>SuperBoris1234</p>
+									  <p>Tommy</p>
+									</span>
+									<img src="./images/courseDetail/2friendIcon.png" class="courseDetailTableFriendIcon">                
+								  </div>
+								</td>
+								<td>
+								  <div class="courseDetailTableButtonContainer">
+									<button type="button" class="courseDetailTableAddCartButton">
+									  <img src="./images/courseDetail/addShoppingCart_white.svg">
+									  <span>Add Cart</span>
+									</button>
+									<button type="button" class="courseDetailTableEnrollButton">
+									  <img src="./images/courseDetail/addIcon.svg">
+									  <span>Enroll</span>
+									</button>
+								  </div>
+								</td>
+							  </tr>
+			
+							</table>
+							
+						  </div>
+			
+						  <!-- Student Review Section -->
+						  <button type="button" class="courseDetailStudentReviewButton collapsibleButton">
+							<span>Student Review</span>
+							<img src="./images/courseDetail/arrowDropDownIcon.svg">
+						  </button>
+						  <div class="courseDetailStudentReviewContainer collapsibleContent hiddenState">
+							<!-- First review -->
+							<div class="courseDetailStudentReview">
+			
+							  <table>
+								<tr>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Content</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Teaching</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								</tr>
+								<tr>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  Content of the course doesnt make sense at all. It’s pure chaos. no bs lezgoooooo
+									</p>
+								  </td>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  Simon best prof 10/10 would recommend -IGN
+									</p>
+								  </td>
+								</tr>
+								<!-- Second Row -->
+								<tr>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Difficulty</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Workload</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								</tr>
+								<tr>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  The course is moderately difficult. With enough studying should be not that hard to archive a good grade.
+									</p>
+								  </td>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  HAIYAAAAAAAAAAAA so many hw, exam very hard. Overall, I got a A+
+									</p>
+								  </td>
+								</tr>
+							  </table>
+			
+							  <hr>
+			
+							  <p>By Bob Lee on Dec 3, 2023</p>
+			
+							</div>
+							<!-- Second review -->
+							<div class="courseDetailStudentReview">
+			
+							  <table>
+								<tr>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Content</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Teaching</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								</tr>
+								<tr>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  Some are common sense
+									</p>
+								  </td>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  Simon is friendly. He is willing to answer student questions.
+									</p>
+								  </td>
+								</tr>
+								<!-- Second Row -->
+								<tr>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Difficulty</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								  <th>
+									<div class="courseDetailStudentReviewHeader">
+									  <span>Workload</span>
+									  <div class="courseDetailRatingBoxContainer">
+										<span class="courseDetailRatingBox">5/5</span>
+									  </div>
+									</div>
+								  </th>
+								</tr>
+								<tr>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  I didn't study for final but I got an A grade
+									</p>
+								  </td>
+								  <td>
+									<p class="courseDetailStudentReviewDescription">
+									  No homework. But doing the project will take some time.
+									</p>
+								  </td>
+								</tr>
+							  </table>
+			
+							  <hr>
+			
+							  <p>By SuperMan1234 on Apr 1, 2022</p>
+			
+							</div>
+						  </div>  
+						</div>
+			
+					  </div>	
 
 				</div>
+				
 
 			</div>
-
-
-			<!-- <div class="overlap-5">
-				<div class="left-window"></div>
-
-				<div class="schedule">
-				<div class="text-wrapper-7">Schedule</div>
-				<div class="timetable">
-				<div class="overlap-6">
-				<div class="timetable-each-block">
-				<div class="column">
-				<div class="overlap-group-4">
-				<div class="rectangle-3"></div>
-				<div class="rectangle-4"></div>
-				<div class="rectangle-5"></div>
-				<div class="rectangle-6"></div>
-				<div class="rectangle-7"></div>
-				<div class="rectangle-8"></div>
-				<div class="rectangle-9"></div>
-				<div class="rectangle-10"></div>
-				<div class="rectangle-11"></div>
-				</div>
-				</div>
-				<div class="overlap-wrapper">
-				<div class="overlap-group-4">
-				<div class="rectangle-3"></div>
-				<div class="rectangle-4"></div>
-				<div class="rectangle-5"></div>
-				<div class="rectangle-6"></div>
-				<div class="rectangle-7"></div>
-				<div class="rectangle-8"></div>
-				<div class="rectangle-9"></div>
-				<div class="rectangle-10"></div>
-				<div class="rectangle-11"></div>
-				</div>
-				</div>
-				<div class="overlap-group-wrapper">
-				<div class="overlap-group-4">
-				<div class="rectangle-3"></div>
-				<div class="rectangle-4"></div>
-				<div class="rectangle-5"></div>
-				<div class="rectangle-6"></div>
-				<div class="rectangle-7"></div>
-				<div class="rectangle-8"></div>
-				<div class="rectangle-9"></div>
-				<div class="rectangle-10"></div>
-				<div class="rectangle-11"></div>
-				</div>
-				</div>
-				<div class="column-2">
-				<div class="overlap-group-4">
-				<div class="rectangle-3"></div>
-				<div class="rectangle-4"></div>
-				<div class="rectangle-5"></div>
-				<div class="rectangle-6"></div>
-				<div class="rectangle-7"></div>
-				<div class="rectangle-8"></div>
-				<div class="rectangle-9"></div>
-				<div class="rectangle-10"></div>
-				<div class="rectangle-11"></div>
-				</div>
-				</div>
-				<div class="column-3">
-				<div class="overlap-group-4">
-				<div class="rectangle-3"></div>
-				<div class="rectangle-4"></div>
-				<div class="rectangle-5"></div>
-				<div class="rectangle-6"></div>
-				<div class="rectangle-7"></div>
-				<div class="rectangle-8"></div>
-				<div class="rectangle-9"></div>
-				<div class="rectangle-10"></div>
-				<div class="rectangle-11"></div>
-				</div>
-				</div>
-				</div>
-				<div class="day-row">
-				<div class="text-wrapper-8">Mon</div>
-				<div class="overlap-7">
-				<div class="text-wrapper-8">Tue</div>
-				<div class="text-wrapper-9">Wed</div>
-				</div>
-				<div class="text-wrapper-10">Thu</div>
-				<div class="text-wrapper-11">Fri</div>
-				</div>
-				<div class="time-column">
-				<div class="text-wrapper-12">9 AM</div>
-				<div class="text-wrapper-13">10 AM</div>
-				<div class="text-wrapper-14">11 AM</div>
-				<div class="text-wrapper-15">12 PM</div>
-				<div class="text-wrapper-16">1 PM</div>
-				<div class="text-wrapper-17">2 PM</div>
-				<div class="text-wrapper-18">3 PM</div>
-				<div class="text-wrapper-19">4 PM</div>
-				<div class="text-wrapper-20">5 PM</div>
-				</div>
-				<div class="interval-rows">
-				<img class="line" src="img/line-3.svg" />
-				<img class="img" src="img/line-4.svg" />
-				<img class="line-2" src="img/line-5.svg" />
-				<img class="line-3" src="img/line-6.svg" />
-				<img class="line-4" src="img/line-7.svg" />
-				<img class="line-5" src="img/line-8.svg" />
-				<img class="line-6" src="img/line-9.svg" />
-				<img class="line-7" src="img/line-10.svg" />
-				<img class="line-8" src="img/line-11.svg" />
-				</div>
-				</div>
-				</div>
-				</div>
-
-				<div class="shopping-cart">
-				<div class="text-wrapper-21">Shopping Cart</div>
-				<div class="shopping-cart-window"><div class="scroll"></div></div>
-				<div class="select-all-check-box">
-				<div class="check-box"></div>
-				<div class="text-wrapper-22">Select All</div>
-				</div>
-				<div class="group-wrapper">
-				<div class="group-2">
-				<div class="overlap-group-5">
-				<div class="text-wrapper-23">Enroll</div>
-				<img class="plus" src="img/plus-2.svg" />
-				</div>
-				</div>
-				</div>
-				<div class="group-3">
-				<div class="group-4"><div class="text-wrapper-24">Clear All</div></div>
-				</div>
-				<img class="cart" src="img/cart.svg" />
-				</div>
-
-				<img class="line-9" src="img/line-1.svg" />
-				</div> -->
-
-				<!-- <img class="course-block" src="img/course-block-1.png" />
-					<div class="overlap-8">
-					<img class="course-block-2" src="img/course-block-2.png" />
-					<img class="course-block-3" src="img/course-block-3.png" />
-
-					</div> -->
-
-
 
 		</div>
 		<script src="index.js"></script>
