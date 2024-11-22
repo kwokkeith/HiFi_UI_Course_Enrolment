@@ -4,6 +4,12 @@ body{
     height: 100%;
 }
 
+
+button {
+    border: 0;
+    background-color: transparent;
+}
+
 .final-search-home {
     position: relative;
     width: 100%;
@@ -103,7 +109,7 @@ body{
     font-weight: 700;
     color: #ffffff;
     font-size: 24px;
-    margin: 0;
+    margin: 8px 0;
 }
 
 /* pillar filter */
@@ -122,7 +128,7 @@ body{
     padding: 0 4px;
 }
 .pillarFilterOptionsContainer input{
-    width: 86px;
+    width: 100px;
     height: 40px;
     font-family: "IBM Plex Sans-Bold", Helvetica;
     font-weight: 700;
@@ -133,9 +139,9 @@ body{
     border: 1.5px solid #000000;
     margin-right: 8px;
 }
-/* freshmore */
+/* hass */
 .pillarFilterOptionsContainer input:last-of-type{
-    width: 186px;
+    width: 100px;
     margin-right: 0;
 }
 
@@ -449,6 +455,7 @@ body{
 .courseDetail{
     /* don't know what setting width to 100% don't work*/
     display: flex;
+    width: 100%;
     flex-wrap: wrap;
     background-color: #FFF8E8;
     
