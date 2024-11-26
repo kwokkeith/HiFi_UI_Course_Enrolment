@@ -88,62 +88,17 @@
 
 						</div>
 
-						<div class="shoppingCartWindow">
-							<!-- shoppingCartCourseBlock 1 -->
-							<div class="shoppingCartCourseBlock">
-								<input type="checkbox" class="shoppingCartCourseBlockCheckbox">
-								<div class="shoppingCartCourseBlockCourse">
-									<span class="shoppingCartCourseBlockCourseCode">50.006</span>
-									<span class="shoppingCartCourseBlockCourseTitle">User Interface Design & Implementation longer name for testing yeah</span>
-								</div>
-								<button type="button" class="shoppingCartCourseBlockRemoveButton">
-									<img src="./images/shoppingCart/cancelIcon.svg">
-								</button>
-							</div>
-							<!-- shoppingCartCourseBlock 2 -->
-							<div class="shoppingCartCourseBlock">
-								<input type="checkbox" class="shoppingCartCourseBlockCheckbox">
-								<div class="shoppingCartCourseBlockCourse">
-									<span class="shoppingCartCourseBlockCourseCode">50.006</span>
-									<span class="shoppingCartCourseBlockCourseTitle">User Interface Design & Implementation</span>
-								</div>
-								<button type="button" class="shoppingCartCourseBlockRemoveButton">
-									<img src="./images/shoppingCart/cancelIcon.svg">
-								</button>
-							</div>
-							<!-- shoppingCartCourseBlock 3 -->
-							<div class="shoppingCartCourseBlock">
-								<input type="checkbox" class="shoppingCartCourseBlockCheckbox">
-								<div class="shoppingCartCourseBlockCourse">
-									<span class="shoppingCartCourseBlockCourseCode">10.002</span>
-									<span class="shoppingCartCourseBlockCourseTitle">Physics I</span>
-								</div>
-								<button type="button" class="shoppingCartCourseBlockRemoveButton">
-									<img src="./images/shoppingCart/cancelIcon.svg">
-								</button>
-							</div>
-							<!-- shoppingCartCourseBlock 4 -->
-							<div class="shoppingCartCourseBlock">
-								<input type="checkbox" class="shoppingCartCourseBlockCheckbox">
-								<div class="shoppingCartCourseBlockCourse">
-									<span class="shoppingCartCourseBlockCourseCode">50.002</span>
-									<span class="shoppingCartCourseBlockCourseTitle">Introduction to Python</span>
-								</div>
-								<button type="button" class="shoppingCartCourseBlockRemoveButton">
-									<img src="./images/shoppingCart/cancelIcon.svg">
-								</button>
-							</div>
-
+						<div class="shoppingCartWindow" id="shoppingCartWindow">
 						</div>
 
 						<div class="shoppingCartActionButtonContainer">
 
-							<button id="shoppingCartEnrollButton" type="button">
+							<button id="shoppingCartEnrollButton" type="button" onClick="enrollAll()">
 								<img src="./images/shoppingCart/addIcon_white.svg">
 								<span>Enroll</span>
 							</button>
 
-							<button id="shoppingCartClearAllButton" type="button">
+							<button id="shoppingCartClearAllButton" type="button" onClick="clearAll()">
 								<span>Clear All</span>
 							</button>
 
@@ -152,8 +107,157 @@
 
 					<hr>
 
-					<div class="scheduleContainer">
-						<img src="./images/schedule/emptySchedule.png">
+                    <style>
+                        .scheduleImage {
+                            position: relative;
+                            top: 0;
+                            left: 0;
+                        }
+                        .course1fade {
+                            position: absolute;
+                            bottom: 212px;
+                            left: 90px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #bbbbbb;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course2fade {
+                            position: absolute;
+                            bottom: 212px;
+                            left: 242px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #bbbbbb;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course3fade {
+                            position: absolute;
+                            bottom: 18px;
+                            left: 319px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #bbbbbb;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course4fade {
+                            position: absolute;
+                            bottom: 18px;
+                            left: 166px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #bbbbbb;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course1 {
+                            position: absolute;
+                            bottom: 212px;
+                            left: 90px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #75d583;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course2 {
+                            position: absolute;
+                            bottom: 212px;
+                            left: 242px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #75d583;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course3 {
+                            position: absolute;
+                            bottom: 18px;
+                            left: 319px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #75d583;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course4 {
+                            position: absolute;
+                            bottom: 18px;
+                            left: 166px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #75d583;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                    </style>
+					<div class="scheduleContainer" id="scheduleContainer">
+						<img class="scheduleImage" src="./images/schedule/emptySchedule.png">
+                        <!--
+                        <div class="course1">20.420<br>CI01</div>
+                        <div class="course2">20.420<br>CI01</div>
+                        <div class="course3fade">40.008<br>CI02</div>
+                        <div class="course4">40.008<br>CI02</div>
+                        -->
 					</div>
 				</div>
 

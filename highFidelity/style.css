@@ -542,7 +542,7 @@ button {
 .courseDetailRatingBoxContainer{
     width: 61px;
     height: 37px;
-    background-color: #b4ff72;
+    background-color: #bbbbbb;
     border-radius: 100px;
     display: flex;
     justify-content: center;
@@ -614,6 +614,10 @@ button {
     background-color: hsla(129, 53%, 59%, 0.7);
     cursor: pointer;
 }
+.courseDetailTableAddCartButton:disabled{
+    background-color: #bbbbbb;
+    cursor: not-allowed;
+}
 .courseDetailTableEnrollButton{
     width: 85%;
     height: 38px;
@@ -631,6 +635,10 @@ button {
 .courseDetailTableEnrollButton:hover{
     background-color: rgb(238, 238, 238);
     cursor: pointer;
+}
+.courseDetailTableEnrollButton:disabled{
+    background-color: #bbbbbb;
+    cursor: not-allowed;
 }
 .courseDetailStudentReviewButton{
     width: 100%;

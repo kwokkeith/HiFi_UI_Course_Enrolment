@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"math/rand"
 	"strconv"
 	//"slices"
 	"io"
@@ -16,10 +17,13 @@ import (
 	"github.com/lithammer/fuzzysearch/fuzzy"
 )
 
+var rating_colour_codes = [6]string {"#FB8787", "#FBAE87", "#FBDA87", "#FBF587", "#BFFB87", "#9AFB87"}
+
+
 const lipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed ante rutrum, tristique quam sit amet, pellentesque risus. Etiam vitae augue arcu. Nunc sed erat ipsum. Proin porttitor purus eget risus convallis faucibus. Aenean turpis turpis, luctus vitae quam ac, rhoncus luctus orci. Aliquam rhoncus ex vitae ornare mollis. Nam id enim molestie, sagittis purus vitae, ornare nibh."
 
 func main() {
-	f, _ := os.Open("../courses.csv")
+	f, _ := os.Open("../courses_alpha.csv")
 	csvreader := csv.NewReader(f)
 
 	tracks := make(map[string][]string)
@@ -101,9 +105,11 @@ func main() {
 			//fmt.Println(term_filter)
 
 			found := fuzzy.RankFindFold(msg, search_arr)
-			sort.Slice(found, func(i, j int) bool {
-				return found[i].Distance < found[j].Distance
-			})
+			if msg != "" {
+				sort.Slice(found, func(i, j int) bool {
+					return found[i].Distance < found[j].Distance
+				})
+			}
 
 			div_html := ""
 			//div_html += rawQuery + "<br>"
@@ -197,13 +203,64 @@ func main() {
 				instructor := records[idx][4]
 				description := records[idx][5]
 				pillar_tracks := tracks[strings.ToLower(pillar)] 
+				ratings := [4]int {rand.Intn(6), rand.Intn(6), rand.Intn(6), rand.Intn(6)}
+				rating_colours := [4]string {rating_colour_codes[ratings[0]], rating_colour_codes[ratings[1]], rating_colour_codes[5-ratings[2]], rating_colour_codes[5-ratings[3]]}
+				
+
+				buttons := [2]string {fmt.Sprintf(`
+					<div class="courseDetailTableButtonContainer">
+					<button type="button" class="courseDetailTableAddCartButton" onClick="addCourse()">
+					<img src="./images/courseDetail/addShoppingCart_white.svg">
+					<span>Add to Cart</span>
+					</button>
+					<button type="button" class="courseDetailTableEnrollButton" onClick="enrollCourse('%s', '%s')">
+					<img src="./images/courseDetail/addIcon.svg">
+					<span>Enroll</span>
+					</button>
+					</div>
+				`, course_code, course_name),
+				`
+					<div class="courseDetailTableButtonContainer">
+					<button type="button" class="courseDetailTableAddCartButton" disabled>
+					<img src="./images/courseDetail/addShoppingCart_white.svg">
+					<span>Add to Cart</span>
+					</button>
+					<button type="button" class="courseDetailTableEnrollButton" disabled>
+					<img src="./images/courseDetail/addIcon.svg">
+					<span>Enroll</span>
+					</button>
+					</div>
+				`}
+
+
+				friends := [2]string {`
+					<div class="popup">
+					<span class="popuptext popuptext_friend">
+					<p><b>Friends taking this class:</b></p>
+					<p>Bob L</p>
+					<p>Charlie S</p>
+					<p>Andy</p>
+					</span>
+					<img src="./images/courseDetail/3friendIcon.png" class="courseDetailTableFriendIcon">               
+					</div>
+				`, "None :("}
+
+				statuses := [2]string {`<td style="color: green">Open</td>`, `<td style="color: red">Closed</td>`}
+
+				if course_code == "40.008" {
+					buttons[0], buttons[1] = buttons[1], buttons[0]
+					friends[0], friends[1] = friends[1], friends[0]
+					statuses[0], statuses[1] = statuses[1], statuses[0]
+				}
+
 				fulfillment := fmt.Sprintf(`<div class="courseBlockMessage">
 				<img src="./images/courseBlock/starIcon_green.svg">
 				<span>This course fulfills your track: %s</span>
-				</div>`, pillar_tracks[(len(course_name))%len(pillar_tracks)]);
+				</div>`, pillar_tracks[(len(course_name))%len(pillar_tracks)])
 				if description == "" {
 					description = lipsum
 					fulfillment = ""
+					friends[0] = "None :("
 				}
 				div_html += fmt.Sprintf(`
 					<script src="hide_unhide.js"></script>
@@ -235,8 +292,8 @@ func main() {
 					<span class="popuptext">The relevance and clarity of materials in supporting course objectives.</span>
 					<img src="./images/courseDetail/infoIcon_grey.svg">
 					</div>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 					<div class="courseDetailRatingContainer">
@@ -245,8 +302,8 @@ func main() {
 					<span class="popuptext">Instructor’s effectiveness in delivering the course material.</span>
 					<img src="./images/courseDetail/infoIcon_grey.svg">
 					</div>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 					<div class="courseDetailRatingContainer">
@@ -255,8 +312,8 @@ func main() {
 					<span class="popuptext">How challenging students found the course in terms of understanding and completing the material.</span>
 					<img src="./images/courseDetail/infoIcon_grey.svg">
 					</div>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 					<div class="courseDetailRatingContainer">
@@ -265,8 +322,8 @@ func main() {
 					<span class="popuptext">The amount of work required for the course.</span>
 					<img src="./images/courseDetail/infoIcon_grey.svg">
 					</div>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 
@@ -285,67 +342,34 @@ func main() {
 					</tr>
 
 					<tr>
-					<td>C101</td>
+					<td>CI01</td>
 					<td>
-					<p>Tue 10:30AM - 12:00PM</p>
-					<p>Thu 11:30AM - 13:00PM</p>
+					<p>Mon 10:00AM - 11:30AM</p>
+					<p>Wed 10:00AM - 11:30AM</p>
 					</td>
 					<td>%s</td>
-					<td>Open</td>
+					%s
 					<td>
-					<div class="popup">
-					<span class="popuptext popuptext_friend">
-					<p><b>Friends taking this class:</b></p>
-					<p>Bob L</p>
-					<p>Charlie S</p>
-					<p>Andy</p>
-					</span>
-					<img src="./images/courseDetail/3friendIcon.png" class="courseDetailTableFriendIcon">               
-					</div>
+					%s
 					</td>
 					<td class="courseDetailTableActionContainer">
-					<div class="courseDetailTableButtonContainer">
-					<button type="button" class="courseDetailTableAddCartButton">
-					<img src="./images/courseDetail/addShoppingCart_white.svg">
-					<span>Add Cart</span>
-					</button>
-					<button type="button" class="courseDetailTableEnrollButton">
-					<img src="./images/courseDetail/addIcon.svg">
-					<span>Enroll</span>
-					</button>
-					</div>
+					%s
 					</td>
 					</tr>
 
 					<tr>
-					<td>C101</td>
+					<td>CI02</td>
 					<td>
-					<p>Tue 10:30AM - 12:00PM</p>
-					<p>Thu 11:30AM - 13:00PM</p>
+					<p>Tue 4:00PM - 5:30PM</p>
+					<p>Thu 4:00PM - 5:30PM</p>
 					</td>
 					<td>%s</td>
-					<td>Waitlist</td>
+					%s
 					<td>
-					<div class="popup">
-					<span class="popuptext popuptext_friend">
-					<p><b>Friends taking this class:</b></p>
-					<p>SuperBoris1234</p>
-					<p>Tommy</p>
-					</span>
-					<img src="./images/courseDetail/2friendIcon.png" class="courseDetailTableFriendIcon">                
-					</div>
+					%s
 					</td>
 					<td>
-					<div class="courseDetailTableButtonContainer">
-					<button type="button" class="courseDetailTableAddCartButton">
-					<img src="./images/courseDetail/addShoppingCart_white.svg">
-					<span>Add Cart</span>
-					</button>
-					<button type="button" class="courseDetailTableEnrollButton">
-					<img src="./images/courseDetail/addIcon.svg">
-					<span>Enroll</span>
-					</button>
-					</div>
+					%s
 					</td>
 					</tr>
 
@@ -365,16 +389,16 @@ func main() {
 					<th>
 					<div class="courseDetailStudentReviewHeader">
 					<span>Content</span>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 					</th>
 					<th>
 					<div class="courseDetailStudentReviewHeader">
 					<span>Teaching</span>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 					</th>
@@ -396,16 +420,16 @@ func main() {
 					<th>
 					<div class="courseDetailStudentReviewHeader">
 					<span>Difficulty</span>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 					</th>
 					<th>
 					<div class="courseDetailStudentReviewHeader">
 					<span>Workload</span>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 					</th>
@@ -437,16 +461,16 @@ func main() {
 					<th>
 					<div class="courseDetailStudentReviewHeader">
 					<span>Content</span>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 					</th>
 					<th>
 					<div class="courseDetailStudentReviewHeader">
 					<span>Teaching</span>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 					</th>
@@ -468,16 +492,16 @@ func main() {
 					<th>
 					<div class="courseDetailStudentReviewHeader">
 					<span>Difficulty</span>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 					</th>
 					<th>
 					<div class="courseDetailStudentReviewHeader">
 					<span>Workload</span>
-					<div class="courseDetailRatingBoxContainer">
-					<span class="courseDetailRatingBox">5/5</span>
+					<div class="courseDetailRatingBoxContainer" style="background-color: %s">
+					<span class="courseDetailRatingBox">%s/5</span>
 					</div>
 					</div>
 					</th>
@@ -505,7 +529,22 @@ func main() {
 					</div>
 
 					</div>
-				`, course_code, course_name, description, fulfillment, instructor, instructor)
+				`, course_code, course_name, description,
+					rating_colours[0], strconv.Itoa(ratings[0]), 
+					rating_colours[1], strconv.Itoa(ratings[1]), 
+					rating_colours[2], strconv.Itoa(ratings[2]), 
+					rating_colours[3], strconv.Itoa(ratings[3]), 
+					fulfillment, 
+					instructor, statuses[0], friends[0], buttons[0],
+					instructor, statuses[1], friends[1], buttons[1],
+					rating_colours[0], strconv.Itoa(ratings[0]), 
+					rating_colours[1], strconv.Itoa(ratings[1]), 
+					rating_colours[2], strconv.Itoa(ratings[2]), 
+					rating_colours[3], strconv.Itoa(ratings[3]), 
+					rating_colours[0], strconv.Itoa(ratings[0]), 
+					rating_colours[1], strconv.Itoa(ratings[1]), 
+					rating_colours[2], strconv.Itoa(ratings[2]), 
+					rating_colours[3], strconv.Itoa(ratings[3]))
 				fmt.Fprintf(w, `%s`, div_html)
 			}
 		}
