@@ -30,6 +30,7 @@ button {
     width: 50px;
     height: 171px;
     margin-right: 20px;
+    margin-top: 12px;
 }
 
 .final-search-home .friend {
@@ -323,7 +324,7 @@ button {
     justify-content: space-between;
 }
 #shoppingCartEnrollButton{
-    width: 304px;
+    width: 340px;
     height: 36px;
     background-color: #60ce70de;
     border-radius: 5px;
