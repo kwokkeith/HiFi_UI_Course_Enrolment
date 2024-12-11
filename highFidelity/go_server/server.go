@@ -22,6 +22,7 @@ var rating_colour_codes = [6]string {"#FB8787", "#FBAE87", "#FBDA87", "#FBF587",
 
 const lipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed ante rutrum, tristique quam sit amet, pellentesque risus. Etiam vitae augue arcu. Nunc sed erat ipsum. Proin porttitor purus eget risus convallis faucibus. Aenean turpis turpis, luctus vitae quam ac, rhoncus luctus orci. Aliquam rhoncus ex vitae ornare mollis. Nam id enim molestie, sagittis purus vitae, ornare nibh."
 
+
 func main() {
 	f, _ := os.Open("../courses_alpha.csv")
 	csvreader := csv.NewReader(f)
@@ -57,7 +58,7 @@ func main() {
 		pillars = append(pillars, record[0])
 		terms = append(terms, record[1])
 	}
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/search/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("server: %s /\n", r.Method)
 		fmt.Printf("server: query id: %s\n", r.URL.Query().Get("id"))
 		fmt.Printf("server: content-type: %s\n", r.Header.Get("content-type"))
@@ -163,7 +164,7 @@ func main() {
 					<div class="courseFullContainer">
 						<div class="courseBlock">
 						<button class="courseBlockButton" type="button" 
-						hx-post="/htmx/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals='{"trigger":1, "index":%d}' hx-include="">
+						hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals='{"trigger":1, "index":%d}' hx-include="">
 						<div class="courseBlock1row">
 						<span class="courseBlockCourseCode">%s</span>
 						<span class="courseBlockTerm">%s Term %s</span>
@@ -269,7 +270,7 @@ func main() {
 					<div class="courseDetailSubContainer">
 						<div class="courseDetailHeader">
 						<button type="button" class="courseDetailReturnButton" 
-						hx-post="/htmx/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals='js:{pillars: pillars, terms: terms}' hx-include="[name='search']">
+						hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals='js:{pillars: pillars, terms: terms}' hx-include="[name='search']">
 						<img src="./images/courseDetail/undoIcon.svg"></button>
 						<span class="courseDetailCourseTitle">%s: %s</span>
 						</div>
@@ -551,7 +552,10 @@ func main() {
 	})
 
 
-	http.ListenAndServe("localhost:9990", nil)
+    fs := http.FileServer(http.Dir("../static"))
+    http.Handle("/", fs)
+
+    http.ListenAndServe("localhost:8082", nil)
 
 }
 

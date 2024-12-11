@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://unpkg.com/htmx.org@2.0.3"></script>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="style.css" />
+		<title>SUTD Course Enrolment Page</title>
+	</head>
+	<body>
+		<div class="final-search-home">
+
+			<div class="searchHeader">
+
+				<div class="searchContainer">
+					<form id="form" hx-post="/search/" hx-trigger="input changed delay:200ms" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}">
+						<div class="searchBarContainer">
+							<div class="searchBar">
+								<input name="search" type="text" placeholder="Search for Course Code, Course Name or Instructor Name..." >
+								<button 
+                                    hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include"[name='search']">
+									<img src="./images/searchHeader/searchIcon.svg">
+								</button>
+							</div>
+
+						</div>
+
+							<div class="filter">
+								<div class="pillarFilter">
+                                    <p>Pillar 
+                                        <button type="button" hx-on--before-request="resetPillars()" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals='js:{pillars: nopillars, terms: terms}' hx-include="[name='search']">
+                                                <img src="./images/searchHeader/refresh.svg">
+                                        </button>
+                                    </p>
+									<div class="pillarFilterOptionsContainer" id="pillarFilter">
+                                        <input type="button" class="filterUnactiveState" value="EPD" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+                                        <input type="button" class="filterUnactiveState" value="ESD" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+                                        <input type="button" class="filterUnactiveState" value="ISTD" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+                                        <input type="button" class="filterUnactiveState" value="ASD" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+                                        <input type="button" class="filterUnactiveState" value="DAI" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+                                        <input type="button" class="filterUnactiveState" value="HASS" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+									</div>
+								</div>
+								<div class="termFilter">
+									<p>Term
+                                        <button type="button" hx-on--before-request="resetTerms()" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals='js:{pillars: pillars, terms: noterms}' hx-include="[name='search']">
+                                                <img src="./images/searchHeader/refresh.svg">
+                                        </button>
+                                    </p>
+									<div class="termFilterOptionsContainer" id="termFilter">
+										<input class="filterUnactiveState" type="button" value="1" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+										<input class="filterUnactiveState" type="button" value="2" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+										<input class="filterUnactiveState" type="button" value="3" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+										<input class="filterUnactiveState" type="button" value="4" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+										<input class="filterUnactiveState" type="button" value="5" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+										<input class="filterUnactiveState" type="button" value="6" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+										<input class="filterUnactiveState" type="button" value="7" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+										<input class="filterUnactiveState" type="button" value="8" hx-post="/search/" hx-trigger="click" hx-target="div.rightWindow" hx-vals="js:{pillars: pillars, terms: terms}" hx-include="">
+									</div>
+								</div>
+							</div>
+					</form>
+				</div>
+
+				<div class="menu">
+					<img class="home" src="images/searchHeader/homeIcon_white.svg" />
+					<img class="friend" src="images/searchHeader/groupIcon_white.svg" />
+					<img class="user-profile" src="images/searchHeader/accountIcon_white.svg" />
+				</div>
+
+			</div>
+
+			<div class="mainContainer">
+
+				<div class="leftWindow">
+					<div class="shoppingCartContainer">
+
+						<div class="shoppingCartHeader">
+
+							<div class="shoppingCartSelectAllContainer">
+								<input type="checkbox" id="shoppingCartSelectAll">
+								<span>Select All</span>
+							</div>
+
+							<div class="shoppingCartIconContainer">
+								<img src="./images/shoppingCart/shoppingCartIcon.svg" alt="ShoppingCartIcon">
+								<span>Shopping Cart</span>
+							</div>
+
+						</div>
+
+						<div class="shoppingCartWindow" id="shoppingCartWindow">
+						</div>
+
+						<div class="shoppingCartActionButtonContainer">
+
+							<button id="shoppingCartEnrollButton" type="button" onClick="enrollAll()">
+								<img src="./images/shoppingCart/addIcon_white.svg">
+								<span>Enroll</span>
+							</button>
+
+							<button id="shoppingCartClearAllButton" type="button" onClick="clearAll()">
+								<span>Clear All</span>
+							</button>
+
+						</div>
+					</div>
+
+					<hr>
+
+                    <style>
+                        .scheduleImage {
+                            position: relative;
+                            top: 0;
+                            left: 0;
+                        }
+                        .course1fade {
+                            position: absolute;
+                            bottom: 212px;
+                            left: 90px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #bbbbbb;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course2fade {
+                            position: absolute;
+                            bottom: 212px;
+                            left: 242px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #bbbbbb;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course3fade {
+                            position: absolute;
+                            bottom: 18px;
+                            left: 319px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #bbbbbb;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course4fade {
+                            position: absolute;
+                            bottom: 18px;
+                            left: 166px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #bbbbbb;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course1 {
+                            position: absolute;
+                            bottom: 212px;
+                            left: 90px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #75d583;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course2 {
+                            position: absolute;
+                            bottom: 212px;
+                            left: 242px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #75d583;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course3 {
+                            position: absolute;
+                            bottom: 18px;
+                            left: 319px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #75d583;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                        .course4 {
+                            position: absolute;
+                            bottom: 18px;
+                            left: 166px;
+                            width: 75px;
+                            height: 45px;
+                            border: 2px solid;
+                            line-height: 17px;
+                            background-color: #75d583;
+                            text-align: center;
+                            font-family: "Open Sans-SemiBold", Helvetica;
+                            font-size: 15px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center; 
+                            justify-content: center; 
+                        }
+                    </style>
+					<div class="scheduleContainer" id="scheduleContainer">
+						<img class="scheduleImage" src="./images/schedule/emptySchedule.png">
+                        <!--
+                        <div class="course1">20.420<br>CI01</div>
+                        <div class="course2">20.420<br>CI01</div>
+                        <div class="course3fade">40.008<br>CI02</div>
+                        <div class="course4">40.008<br>CI02</div>
+                        -->
+					</div>
+				</div>
+
+				<div class="rightWindow">
+                    <h3>Start searching or click on the filters to load results...</h3>
+                </div>
+				
+
+			</div>
+
+		</div>
+		<script src="index.js"></script>
+	</body>
+</html>
