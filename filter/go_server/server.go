@@ -35,7 +35,7 @@ func main() {
 		rows = append(rows, strings.Join(record, " "))
 		pillars = append(pillars, record[0])
 	}
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/search/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("server: %s /\n", r.Method)
 		fmt.Printf("server: query id: %s\n", r.URL.Query().Get("id"))
 		fmt.Printf("server: content-type: %s\n", r.Header.Get("content-type"))
@@ -87,5 +87,7 @@ func main() {
 	})
 
 
-	http.ListenAndServe("localhost:9991", nil)
+    fs := http.FileServer(http.Dir("../static"))
+    http.Handle("/", fs)
+	http.ListenAndServe("localhost:8082", nil)
 }

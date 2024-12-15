@@ -42,7 +42,7 @@
                     <div class="search-bar">
                         <input class="form" type="search" 
                                             name="search" placeholder="Search for Instructor, Pillar, Course Name or Number..." 
-                                                          hx-post="/htmx/search/" 
+                                                          hx-post="/search/" 
                                                           hx-on::before-request="startTimer()"
                                                           hx-trigger="input changed delay:200ms, search" 
                                                           hx-target="div.overlap-3">
