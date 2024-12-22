@@ -9,3 +9,7 @@
     c) ``` cd filter/go_server/ ``` for Low Fidelity Filter Search Prototype
 4. Run server.go: ```go run server.go```
 5. Open browser to access: http://localhost:8082/
+
+# Figma Prototype
+Link to Hi-Fidelity Figma Prototype:
+https://www.figma.com/design/ptKJQeardguAt7gksRwJYC/Course-Selection-Final?node-id=457-2155&t=44aYovxv5WYlnuVe-1
